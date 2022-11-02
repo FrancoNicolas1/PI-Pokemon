@@ -1,0 +1,84 @@
+.conteiner{
+   
+   display: flex;
+   justify-content: center;
+   padding: 20px;
+}
+.boxForm{
+    border-radius: 50px;
+    background-color: aliceblue;
+    border: 1px solid black;
+    width: 500px;
+    height: 600px;
+   
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 160px;
+}
+
+.box1{
+    display: flex;  
+    margin: 20px;
+    gap: 20px;
+}
+
+
+.box img{
+    width: 230px;
+}
+.box3{
+    
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+.miniBox label{
+    margin: 10px;
+}
+.create{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+.boxTypes{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.box1 label{
+    color: red;
+}
+.miniBox label{
+    color: red;
+}
+.box3 label{
+    color: black;
+}
+.volver{
+    width: 30px;
+}
+.volver2{
+    background-color: red;
+   margin-left: 20px;
+   border-radius: 100px;
+   cursor: pointer;
+}
+.buttonCreate{
+    border-radius: 20px;
+    width: 100px;
+    cursor: pointer;
+}
+.boxTypes {
+    background-color:  aliceblue;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: 1px solid black;
+}
+.img img{
+    height: 110px;
+    border: 1px solid black;
+}

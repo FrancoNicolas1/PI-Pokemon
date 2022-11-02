@@ -1,0 +1,42 @@
+.cards{
+    display: flex;
+    gap: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+.buttons{
+
+    min-width: 15ch;
+    max-width: 30ch;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to right top, #ddea48, #e8c200, #ef9600, #f16400, #eb1212);
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+ 
+}
+.cajita{
+    display: flex;
+    justify-content: center;
+}
+.ultiBox{
+    background-color: #eb1212;
+    height: 250PX;
+    margin-top: 30px;
+}
+.box10{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box10 img{
+    height: 200px;
+    
+}
