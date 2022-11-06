@@ -9,11 +9,12 @@ import { Link, useHistory } from "react-router-dom";
 export default function Form(){
     const dispatch=useDispatch()
     const typesAll = useSelector((state)=>state.typesPokemon)
+    const allPokemons= useSelector((state)=>state.allPokemons)
+    console.log(allPokemons)
    
-    
+    // console.log(post)
     useEffect(()=>{
         dispatch(getTypesPokemon())
-        
     },[dispatch])
     const history=useHistory()
     // console.log(types)
@@ -60,8 +61,13 @@ export default function Form(){
     }
    
     const handleSubmit=(e)=>{
-        e.preventDefault()       
-        if(Object.values(error).length > 0){
+        e.preventDefault()
+        let filterPokemon= allPokemons.filter((e)=>e.name === pokemon.name.toLocaleLowerCase())
+        console.log(filterPokemon)
+        if(filterPokemon.length){
+            alert("Este pokemon ya existe")
+        }       
+        else if(Object.values(error).length > 0){
              alert ("Llene todos los campos para crear el Pokemon")
         }else if(pokemon.name === ""){
             alert("Debe llenar todos los campos")
@@ -69,21 +75,31 @@ export default function Form(){
          alert("Debe tener algun tipo y que nu supere los 2")
         }else {
             dispatch(postPokemon(pokemon))
-             // alert ("Pokemon creado")
-        }
-            // alert ("Pokemon creado")
+            alert ("Pokemon creado")
+            setPokemon({
+                name:"",
+                hp:"",
+                attack:"",
+                defense:"",
+                speed:"",
+                height:"",
+                weight:"",
+                image:"",
+                types:[]
+            })
             // history.push("/home")
-        
+        }
     }
-   
+   console.log(error)
     return(
     <>
+    <div>
     <Link to={"/home"}><button className={form.volver2}><img className={form.volver} src="https://cdn-icons-png.flaticon.com/512/32/32170.png"/></button></Link>
     <div className={form.conteiner}>
     <form onSubmit={handleSubmit} className={form.boxForm}>
         <div className={form.box}> 
             <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png"/></p>
-            <p>Crea tu pokemon</p>        
+            <h2 className={form.p} >Crea tu pokemon</h2>        
         </div>
 
         <div className={form.box1}>
@@ -181,9 +197,9 @@ export default function Form(){
         />
          {error.image && (<label>{error.image}</label>)}
          {reg_exUrl.test(pokemon.image) && reg_exImg.test(pokemon.image) && 
-            <div>
-                <img src={pokemon.image} width="150px" height="100px"/>
-            </div>
+      
+                <img src={pokemon.image} width="80px" height="80px"/>
+           
            }   
         
          </div>
@@ -213,11 +229,15 @@ export default function Form(){
         </div>
         
         </div>
-
+        {pokemon.name?
+        (<>
         <div className={form.create}>
-        <button className={form.buttonCreate} type="submit">Create Pokemon</button>
+        <button className={Object.values(error).length === 0? form.buttonCreate: form.buttonNoCreatee} type="submit">Create Pokemon</button>
         </div>
+        </>)
+        :(<></>)}
     </form>
+    </div>
     </div>
     </>)
 }

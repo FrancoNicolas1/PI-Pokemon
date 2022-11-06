@@ -16,6 +16,7 @@
     height: 50px;
     border-radius: 100px;
     cursor: pointer;
+    transition-duration: 0.4s;
 }
 img{
     border-radius: 50px;
@@ -29,4 +30,7 @@ img{
 }
 .box3 img{
     width: 400px;
+}
+.button:hover{
+    background-color: #4CAF50;
 }

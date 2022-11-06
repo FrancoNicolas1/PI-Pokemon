@@ -10,6 +10,7 @@ router.get("/", async(req,res)=>{
   try {
     const infoApiTypes= await axios.get("https://pokeapi.co/api/v2/type")
     const typesPokemon= infoApiTypes.data.results.map((type)=> type.name)
+    // console.log(typesPokemon)
     typesPokemon.forEach((e) => {
       Type.findOrCreate({
         where: { name: e },

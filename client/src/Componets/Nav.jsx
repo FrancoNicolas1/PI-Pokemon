@@ -7,7 +7,7 @@ import { getName,refreshPag } from "../Redux/actions";
 
 export default function Nav({setCurrentPage,setLoading}){
     const dispatch=useDispatch()
-    const [name,setName]=useState(" ")
+    const [name,setName]=useState("")
 
     const handleChange=(e)=>{
         e.preventDefault()
@@ -16,13 +16,17 @@ export default function Nav({setCurrentPage,setLoading}){
     
     const handleSubmit=(e)=>{
         e.preventDefault()
+        if(!name){
+            alert("Debe ingresar un Nombre")
+        }else{
         dispatch(refreshPag())
         setLoading(true);
         setTimeout(() => {
           setLoading(false);
         }, 2700);
-       dispatch(getName(name))
+       dispatch(getName(name.toLocaleLowerCase()))
         setCurrentPage(1)
+    }
     }
 
     return(

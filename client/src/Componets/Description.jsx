@@ -10,6 +10,7 @@ export default function Description(){
    const dispatch=useDispatch()
    const history=useHistory()
    const idPokemon=useSelector((state)=>state.idPokemon)
+   console.log(idPokemon)
 
    const {id}= useParams()
   

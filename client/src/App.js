@@ -5,6 +5,8 @@ import  LandinPage  from './Componets/LandingPage';
 import Description from './Componets/Description';
 import Form from './Componets/Form';
 import Favorites from './Componets/Favorites';
+import Back from './Componets/Back';
+import Error from './Componets/Error';
 
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
       <Route exact path={"/form"} component={Form}/>
       <Route exact path={"/pokemon/:id"} component={Description}/>
       <Route exact path={"/favorites"} component={Favorites}/>
+      <Route exact path={"/back"} component={Back}/>
+      <Route path={"*"} component={Error}/>
       
     </Switch>
     </BrowserRouter>

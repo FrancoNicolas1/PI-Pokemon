@@ -1,12 +1,17 @@
 import axios from "axios"
 
 export function getPokemons(){
+    console.log("llegue al pokemons")
     return async function(dispatch){
+        try {
         const allPokemons = await axios.get("http://localhost:3001/pokemon")
         return dispatch({
             type: "GET_POKEMONS",
             payload:allPokemons.data
         })
+    } catch (error) {
+        console.log(error)       
+    }
     }
 }
 
@@ -20,7 +25,12 @@ export function getName(name) {
             payload:getNamePokemon.data
         })
     } catch(error) {
-        console.log(error)
+        alert("No se encontro ese pokemon")
+        const allPokemons = await axios.get("http://localhost:3001/pokemon")
+        return dispatch({
+            type: "GET_POKEMONS",
+            payload:allPokemons.data
+        })
 }
     }
 }
@@ -40,6 +50,7 @@ export function getIdPokemon(id){
 }
 
 export function getTypesPokemon(){
+    console.log("llegue a los tipos")
     return async function(dispatch){
         let getTypesPokemon =await axios.get("http://localhost:3001/type")
         return dispatch({
@@ -53,10 +64,13 @@ export function postPokemon(payload){
     return async function(dispatch) {
         try {
             const json = await axios.post("http://localhost:3001/pokemon", payload)
-            return json
+            return dispatch({
+                type:"POSTEADO",
+                payload:json.data
+            })
             
-        }catch{
-            return alert ("No se pudo ingresar el Pokemon/accion")
+        }catch(error){
+            console.log(error.response.data.error)
         }
     }
 }
@@ -95,6 +109,12 @@ export function refreshPag(payload){
     }
 }
 
+export function refreshId(){
+    return{
+        type:"REFRESH_ID",
+    }
+}
+
 export function favorites(payload){
     return{
         type:"FAVORITE",
@@ -116,5 +136,16 @@ export function deletePokemo(id){
             payload:json
         }
 
+    }
+}
+//////////////////////////prueba back///////////////
+export function orderAlfabeticBack(order){
+    console.log("se llego al action")
+    return async function(dispatch){
+        const pedidoBack= await axios.get(`http://localhost:3001/pokeback?orderAzZa=${order}`)
+        return dispatch({
+            type:"ORDER_AZ_ZA_BACK",
+            payload:pedidoBack.data
+        })
     }
 }

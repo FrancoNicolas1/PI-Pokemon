@@ -1,15 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
 .conteiner{
-   
+    font-family: 'Poor Story', cursive;
    display: flex;
    justify-content: center;
-   padding: 20px;
+   
 }
 .boxForm{
     border-radius: 50px;
     background-color: aliceblue;
     border: 1px solid black;
-    width: 500px;
-    height: 600px;
+    width: 480px;
+    height: 500px;
    
 }
 .box{
@@ -21,13 +22,13 @@
 
 .box1{
     display: flex;  
-    margin: 20px;
+    margin: 10px;
     gap: 20px;
 }
 
 
 .box img{
-    width: 230px;
+    width: 200px;
 }
 .box3{
     
@@ -37,11 +38,13 @@
 }
 .miniBox label{
     margin: 10px;
+    
 }
 .create{
     display: flex;
     justify-content: center;
     padding: 30px;
+
 }
 .boxTypes{
     display: flex;
@@ -66,10 +69,17 @@
    border-radius: 100px;
    cursor: pointer;
 }
+.buttonNoCreatee{
+    border-radius: 20px;
+    width: 100px;
+    cursor: pointer;
+    background-color: red;
+}
 .buttonCreate{
     border-radius: 20px;
     width: 100px;
     cursor: pointer;
+    background-color: green;
 }
 .boxTypes {
     background-color:  aliceblue;
@@ -81,4 +91,8 @@
 .img img{
     height: 110px;
     border: 1px solid black;
+}
+.p{
+    font-size: 22px;
+    
 }

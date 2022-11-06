@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux"
-import { favorites, getPokemons, refreshPag } from "../Redux/actions";
+import { favorites, getPokemons, refreshId, refreshPag } from "../Redux/actions";
 import Nav from "./Nav";
 import Loading from "./Loading";
 import Card from "./Card";
@@ -35,17 +35,22 @@ export default function Home () {
           setLoading(false);
         }, 1700);
         dispatch(getPokemons())
+        dispatch(refreshId())
         // dispatch(getTypesPokemon())
     },[dispatch])
 
     const handleRefresh=()=>{
         dispatch(refreshPag())
+        setLoading(true);
+        setTimeout(() => {
+          setLoading(false);
+        }, 1700);
         dispatch(getPokemons())
     }
-    const handleClick=(pokemon)=>{
-        // console.log(pokemon)
-        dispatch(favorites(pokemon))
-     }
+    // const handleClick=(pokemon)=>{
+    //     // console.log(pokemon)
+    //     dispatch(favorites(pokemon))
+    //  }
     //  console.log(pokemons)
 
     return(
@@ -54,7 +59,7 @@ export default function Home () {
             <div className={home.cajita}>
                 <button className={home.buttons} onClick={handleRefresh}>Refresh</button>
                 <Link to={"/form"}><button className={home.buttons}>Crear Pokemon</button></Link>
-                <Link to={"/favorites"}><button className={home.buttons}>Favoritos</button></Link>
+                {/* <Link to={"/favorites"}><button className={home.buttons}>Favoritos</button></Link> */}
             </div>
             <Filter setCurrentPage={setCurrentPage}/>
             <br/>
@@ -80,7 +85,7 @@ export default function Home () {
                     attack={pokemon.attack}
                     defense={pokemon.defense}
                     /> 
-                    <button onClick={()=>handleClick(pokemon)}>Agregar a favoritos</button>   
+                    {/* <button onClick={()=>handleClick(pokemon)}><img width="80px" height="80px" src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-PNG-Clipart-Background.png"/></button>    */}
                     </div>
                 )
                 

@@ -15,20 +15,33 @@ export default function Pagination({pokemonForPage,pokemons,pag,currentPage}){
         if(currentPage >= pageNumbers.length) return
         pag(currentPage + 1)
     }
-    // console.log(pageNumbers)
-    // console.log(pokemons)
-    // console.log(pokemonForPage)
+    console.log(pageNumbers)
+    console.log(pokemons)
+    console.log(pokemonForPage)
+    console.log(currentPage)
     return(
         <div className={pagination.container}>
-        <button className={pagination.button} onClick={prevHandler}>prev</button>
+            {pageNumbers.length === 1?
+            (<div>
+              {pageNumbers?.map((number)=>(
+                  <button className={number === currentPage? pagination.bu:pagination.button} key={number} onClick={()=> pag(number)}>
+                      {number}
+                  </button>
+              )
+              )}
+            </div>):
+            <div>
+                 <button className={pagination.button} onClick={prevHandler}>prev</button>
                 {pageNumbers?.map((number)=>(
-                  
-                    <button className={pagination.button} key={number} onClick={()=> pag(number)}>
+                    <button className={number === currentPage? pagination.bu:pagination.button} key={number} onClick={()=> pag(number)}>
                         {number}
                     </button>
                 )
                 )}
 
         <button className={pagination.button} onClick={nextHandler}>next</button>
+            </div>
+            
+            }
         </div>
     )}

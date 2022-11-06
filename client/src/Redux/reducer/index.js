@@ -4,7 +4,8 @@ const initialState={
     idPokemon:[],
     typesPokemon:[],
     favorites:[],
- 
+    post:[],    
+    testBack:[]
 }
 
 export default function rootReducer(state=initialState, action){
@@ -109,7 +110,25 @@ export default function rootReducer(state=initialState, action){
                 return{
                     ...state
                 }
-          
+            case "POSTEADO":
+                return{
+                    ...state,
+                    post:action.payload
+                }
+            case "REFRESH_ID":
+            return{
+                ...state,
+                idPokemon:[]
+            }    
+
+////////////////////////PRUEBA BACK/////////////////
+            case "ORDER_AZ_ZA_BACK":
+                // console.log("se llego al reducer")
+                return{
+                    ...state,
+                    testBack:action.payload
+                }    
+
             
 
         

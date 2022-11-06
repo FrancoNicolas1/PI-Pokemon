@@ -7,7 +7,7 @@ router.get("/", async(req,res)=>{
     try {
     const {name}= req.query
     const info = await infoTotal()
-      
+    // console.log(info)
         if(name){
             const searchPoke=info.filter((pokemon)=>pokemon.name.toLowerCase().includes(name.toLowerCase()))
             searchPoke.length?
