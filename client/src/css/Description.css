@@ -1,9 +1,10 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
 .grass{
     background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0726fbdd-a6a6-4871-bed6-e8e0b9ce2af0/db50a4r-87e59f37-c422-44c4-8082-2a7574101bde.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA3MjZmYmRkLWE2YTYtNDg3MS1iZWQ2LWU4ZTBiOWNlMmFmMFwvZGI1MGE0ci04N2U1OWYzNy1jNDIyLTQ0YzQtODA4Mi0yYTc1NzQxMDFiZGUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.rETgXturw_dHZ-bgI9Y-OsjvZBnivy3AGI_RMLlPpjg");
     background-repeat:no-repeat;
     background-position: 450px;
-    height: 700px;
+    height: 650px;
+    font-family:   'Poor Story', cursive;;
 }
 .caja{
     display: flex;
@@ -99,4 +100,23 @@
     margin-left: 30px;
     padding: 5px;
     cursor: pointer;
+    
+    
 }
+.botoncito{
+    width: 100px;
+    height: 30px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    background-color: yellowgreen;
+}
+.botoncito:hover{
+    background-color: red;
+}
+.cajota{
+    display: flex;
+    justify-content: space-between;
+}
+
+    

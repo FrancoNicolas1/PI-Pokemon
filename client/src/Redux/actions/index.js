@@ -1,7 +1,6 @@
 import axios from "axios"
 
 export function getPokemons(){
-    console.log("llegue al pokemons")
     return async function(dispatch){
         try {
         const allPokemons = await axios.get("http://localhost:3001/pokemon")
@@ -50,7 +49,7 @@ export function getIdPokemon(id){
 }
 
 export function getTypesPokemon(){
-    console.log("llegue a los tipos")
+  
     return async function(dispatch){
         let getTypesPokemon =await axios.get("http://localhost:3001/type")
         return dispatch({
@@ -146,6 +145,16 @@ export function orderAlfabeticBack(order){
         return dispatch({
             type:"ORDER_AZ_ZA_BACK",
             payload:pedidoBack.data
+        })
+    }
+}
+
+export function orderAtack(order){
+    return async function (dispatch){
+        const pedido = await axios.get(`http://localhost:3001/pokeback?orderAttack=${order}`)
+        return dispatch({
+            type:"ORDER_ATTACK",
+            payload:pedido.data
         })
     }
 }

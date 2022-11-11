@@ -15,10 +15,7 @@ export default function Pagination({pokemonForPage,pokemons,pag,currentPage}){
         if(currentPage >= pageNumbers.length) return
         pag(currentPage + 1)
     }
-    console.log(pageNumbers)
-    console.log(pokemons)
-    console.log(pokemonForPage)
-    console.log(currentPage)
+
     return(
         <div className={pagination.container}>
             {pageNumbers.length === 1?

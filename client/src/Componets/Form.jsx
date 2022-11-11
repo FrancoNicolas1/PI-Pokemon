@@ -63,7 +63,7 @@ export default function Form(){
     const handleSubmit=(e)=>{
         e.preventDefault()
         let filterPokemon= allPokemons.filter((e)=>e.name === pokemon.name.toLocaleLowerCase())
-        console.log(filterPokemon)
+        // console.log(filterPokemon)
         if(filterPokemon.length){
             alert("Este pokemon ya existe")
         }       
@@ -90,7 +90,7 @@ export default function Form(){
             // history.push("/home")
         }
     }
-   console.log(error)
+//    console.log(error)
     return(
     <>
     <div>
@@ -232,7 +232,7 @@ export default function Form(){
         {pokemon.name?
         (<>
         <div className={form.create}>
-        <button className={Object.values(error).length === 0? form.buttonCreate: form.buttonNoCreatee} type="submit">Create Pokemon</button>
+        <button className={Object.values(error).length === 0 && pokemon.types.length? form.buttonCreate: form.buttonNoCreatee} type="submit">Create Pokemon</button>
         </div>
         </>)
         :(<></>)}

@@ -36,9 +36,11 @@ export default function Description(){
 
     return(
         <>
+        <div className="cajota">
         <Link to={"/home"}><button className="volverPadre"><img className="volver" src="https://cdn-icons-png.flaticon.com/512/32/32170.png"/></button></Link>
-        <button onClick={handleDelete}>DELETE</button>
         
+        <button className="botoncito" onClick={handleDelete}>DELETE</button>
+        </div>
         {loading?(<Loading/>)
         :(<div>
         {idPokemon.map((e)=>{

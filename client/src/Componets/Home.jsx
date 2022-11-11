@@ -84,6 +84,7 @@ export default function Home () {
                     hp={pokemon.hp}
                     attack={pokemon.attack}
                     defense={pokemon.defense}
+                 
                     /> 
                     {/* <button onClick={()=>handleClick(pokemon)}><img width="80px" height="80px" src="https://www.pngplay.com/wp-content/uploads/8/Gold-Vector-Star-PNG-Clipart-Background.png"/></button>    */}
                     </div>

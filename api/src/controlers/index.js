@@ -23,6 +23,7 @@ const infoApi= async()=>{
                 weight: e.weight,
                 image: e.sprites.other.home.front_default,
                 types: e.types.map((e)=>e.type.name),
+                
             }
         })
         return infoPokemons

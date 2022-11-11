@@ -74,6 +74,12 @@ export default function rootReducer(state=initialState, action){
             let orderBy = action.payload==="creados"?
             allPoke3.filter((e)=>e.created)
             :allPoke3.filter((e)=>!e.created)
+            if(!orderBy.length){
+                alert("Debe crear un pokemon para aplicar este Filtro")
+                orderBy=allPoke3
+            }
+
+
             return{
                 ...state,
                 allPokemons:[...orderBy]
@@ -84,8 +90,10 @@ export default function rootReducer(state=initialState, action){
             let orderType=action.payload === "todos"
             ?allPoke4
             :allPoke4.filter((e)=>e.types?.includes(action.payload))
-            // console.log(allPoke4)
-            // console.log(orderType)
+            if(!orderType.length){
+             alert ("Debe ingresar mas Pokemons para aplicar este filtro")
+              orderType=allPoke4
+            } 
             return{
                 ...state,
             allPokemons:[...orderType]
@@ -128,8 +136,11 @@ export default function rootReducer(state=initialState, action){
                     ...state,
                     testBack:action.payload
                 }    
-
-            
+            case "ORDER_ATTACK":
+                console.log("llegasate")
+                return{
+                    ...state
+                }
 
         
         default: return {...state}

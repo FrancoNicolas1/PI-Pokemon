@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {  getTypesPokemon, orderAttack, orderAzZa, orderCreate, orderType } from "../Redux/actions";
+import {  getTypesPokemon, orderAttack, orderAzZa, orderCreate, orderType,orderExperiencie } from "../Redux/actions";
 import filter from "../css/Filter.module.css"
 
 export default function Filter({setCurrentPage}){
@@ -30,8 +30,7 @@ export default function Filter({setCurrentPage}){
         dispatch(orderType(e.target.value))
         setCurrentPage(1)
     }
-
-    
+   
 
     return(
         <div className={filter.conteiner} >
@@ -71,7 +70,7 @@ export default function Filter({setCurrentPage}){
      </select>
      </div>  
 
-
+   
  
 
      </div>

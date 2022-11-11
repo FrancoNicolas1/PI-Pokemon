@@ -16,10 +16,11 @@ router.get("/", async (req,res)=>{
         :allApi.sort((a,b)=>b.name.localeCompare(a.name))
         res.status(200).json(orderAll)
     }else if(orderAttack){
-        const orderAtt= orderAttack === "MIN"?
-        allApi.sort((a,b)=>a.attack - b.attack)
-        :allApi.sort((a,b)=>b.attack - a.attack)
-        res.status(200).json(orderAtt)
+        const order= orderAttack === "filtro"?
+        // res.send("se mando query")
+         allApi.filter((e)=> e.attack > 50)
+         : res.send("manda algo")
+        res.json(order)
     }
        else{
         res.send("No se mando nada")
@@ -29,14 +30,6 @@ router.get("/", async (req,res)=>{
 }   
 })
 
-router.get("/a", async(req,res)=>{
-    const {order}=req.query
-    try {
-    if(order === "a")    
-    res.send("llegaste a la otra rutas")
-} catch (error) {
-    console.log(error)       
-}
-})
+
 
 module.exports=router

@@ -1,6 +1,6 @@
 import React from "react";
 import {useSelector, useDispatch} from "react-redux"
-import { orderAlfabeticBack } from "../Redux/actions";
+import { orderAlfabeticBack, orderAtack } from "../Redux/actions";
 export default function Back(){
     const dispatch=useDispatch()
     const testBack=useSelector((state)=>state.testBack)
@@ -12,7 +12,10 @@ export default function Back(){
         dispatch(orderAlfabeticBack(e.target.value))
     }
 
-
+    const handleChange=(e)=>{
+        e.preventDefault()
+        dispatch(orderAtack(e.target.value))
+    }
     return(
     <>
     <h1>HOLAAAA</h1>
@@ -20,6 +23,6 @@ export default function Back(){
         <option value="ASC">ASC</option>
         <option value="DES">DES</option>
     </select>
-    
+    <button onClick={handleChange}>Mayor de 50 atack</button>
     </>)
 }
